@@ -1,10 +1,14 @@
 package stepdefinitions;
+
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 import pages.BlueRentalLoginPage;
+
 import java.util.List;
+
 import static utilities.WaitUtils.waitFor;
+
 public class BlueRentalStepDefs {
     BlueRentalLoginPage blueRentalLoginPage = new BlueRentalLoginPage();
     @When("user enters the admin email and password")
@@ -13,6 +17,7 @@ public class BlueRentalStepDefs {
 //        credentials = {jack1@gmail.com,12345 }
         blueRentalLoginPage.email.sendKeys(credentials.get(0));
         blueRentalLoginPage.password.sendKeys(credentials.get(1));
+
     }
     @When("user clicks on the login button")
     public void user_clicks_on_the_login_button() {
@@ -23,4 +28,5 @@ public class BlueRentalStepDefs {
         waitFor(2);
         Assert.assertTrue(blueRentalLoginPage.profile.isDisplayed());
     }
+
 }

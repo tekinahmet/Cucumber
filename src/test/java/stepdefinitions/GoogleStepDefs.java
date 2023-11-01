@@ -1,10 +1,12 @@
 package stepdefinitions;
+
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import org.junit.Assert;
 import org.openqa.selenium.Keys;
 import pages.GoogleHomePage;
 import utilities.Driver;
+
 public class GoogleStepDefs {
     GoogleHomePage googleHomePage = new GoogleHomePage();
     @Given("user is on the google home page")
@@ -37,4 +39,5 @@ public class GoogleStepDefs {
     public void user_search_for_on_google(String string) {
         googleHomePage.googleSearchBox.sendKeys(string+Keys.ENTER);
     }
+
 }

@@ -1,7 +1,8 @@
-@scenario_outline_1
+@scenario_outline_1 @regression
 Feature: search_feature
   Background: navigate_to_google
     Given user navigates to "https://www.google.com"
+
   Scenario Outline: TC_search_items
     And user search for "<search_item>" on google
     Then user verifies page title contains "<search_item>"
@@ -14,6 +15,7 @@ Feature: search_feature
       | tesla       |
       | tea pot     |
       | toyota      |
+
 
 #Scenario: --->>> Scenario Outline :
 #Examples: must be added to pass the test data

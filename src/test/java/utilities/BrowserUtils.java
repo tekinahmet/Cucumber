@@ -1,10 +1,13 @@
 package utilities;
+
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+
 import static org.junit.Assert.*;
+
 public class BrowserUtils {
     public static void clickWithTimeOut(WebElement element, int timeout) {
         for (int i = 0; i < timeout; i++) {
@@ -16,6 +19,7 @@ public class BrowserUtils {
             }
         }
     }
+
     public static String getTextWithTimeout(WebElement element, int timeout) {
         String text="";
         for (int i = 0; i < timeout; i++) {
@@ -28,6 +32,8 @@ public class BrowserUtils {
         }
         return null;
     }
+
+
     /*
     Custom method to wait to type in an input
      */    public static void sendKeysWithTimeout(WebElement element,String text,int timeout) {
@@ -40,6 +46,8 @@ public class BrowserUtils {
             }
         }
     }
+
+
     //    RADIO BUTTON
     public void radioClickByIndex(int index){
         int numOfRadio =Driver.getDriver().findElements(By.xpath("//input[@type='radio']")).size();
@@ -49,6 +57,7 @@ public class BrowserUtils {
             }
         }
     }
+
     //    CHECKBOX BUTTON
     public void checkboxClickByIndex(int index){
         int numOfRadio =Driver.getDriver().findElements(By.xpath("//input[@type='checkbox']")).size();
@@ -73,10 +82,13 @@ public class BrowserUtils {
             }
         }
     }
+
     public static void dropdownSelectByIndex(WebElement element, int index){
         Select objSelect =new Select(element);
         objSelect.selectByIndex(index);
     }
+
+
     public static void dropdownSelectByValue(WebElement element, String value) {
         Select objSelect = new Select(element);
         objSelect.selectByValue(value);
@@ -104,6 +116,8 @@ public class BrowserUtils {
         select.selectByIndex(optionIndex);
         return select.getFirstSelectedOption();
     }
+
+
     //    DROPDOWN: accepts dropdown element and returns all selected element texts as an arraylist
     public ArrayList<String> dropdownGetSelectedOptions(WebElement element) throws Exception {
         if (element!=null){
@@ -118,6 +132,8 @@ public class BrowserUtils {
             throw new Exception("No element is returned");
         }
     }
+
+
     //    VERIFICATIONS
     /**
      * Verifies whether the element is displayed on page
@@ -145,6 +161,7 @@ public class BrowserUtils {
             fail("Element not found: " + by);
         }
     }
+
     //VERIFY ELEMENT IS NOT DISPLAYED
     /**
      * Verifies whether the element matching the provided locator is NOT displayed on page
@@ -196,6 +213,7 @@ public class BrowserUtils {
             e.printStackTrace();
         }
     }
+
     //    ALERT
     public void alertAccept() throws InterruptedException {
         Driver.getDriver().switchTo().alert().accept();
@@ -229,4 +247,5 @@ public class BrowserUtils {
         List<String> list = new ArrayList<>(Driver.getDriver().getWindowHandles());
         Driver.getDriver().switchTo().window(list.get(windowIndex));
     }
+
 }

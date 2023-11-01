@@ -2,7 +2,9 @@ package utilities;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+
 public class ActionsUtils {
+
     //    ACTIONS_RIGHT CLICK
     public static void actionsRightClickOnElement(WebElement element) {
         new Actions(Driver.getDriver()).contextClick(element).perform();

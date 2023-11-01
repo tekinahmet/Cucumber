@@ -1,3 +1,4 @@
+@smoke
 Feature: google_search_feature
 #Background is used for repeated pre- conditions
 #It executed BEFORE EACH SCENARIO KEYWORD
@@ -7,10 +8,13 @@ Feature: google_search_feature
   Scenario: TC01_iphone_search
     And user search for iPhone
     Then verify the result contains iPhone
+
   @tea_pot
   Scenario: TC02_tea_pot_search
     And search for porcelain tea pot
     Then verify the result contains porcelain tea pot
+
+
 #FEATURE FILE**********************************************************************
 #  All feature files have .feature extensions
 #  Feature files are written in Gherkin language

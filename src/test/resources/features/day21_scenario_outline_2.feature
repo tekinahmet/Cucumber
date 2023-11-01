@@ -1,4 +1,4 @@
-@scenario_outline_2
+@scenario_outline_2 @regression
 Feature: data_tables_features
   Scenario Outline: user creation test
     Given user navigates to "https://editor.datatables.net/"
@@ -14,6 +14,7 @@ Feature: data_tables_features
     And use searches for the "<first_name>"
     Then verify the name fields contains the first name "<first_name>"
     And close the application
+
     Examples: test_data
       | first_name | last_name | position    | office    | extension | start_date | salary    |
       | john       | lennon    | musician    | LA        | 12345     | 2024-12-12 | 500000    |
@@ -22,4 +23,6 @@ Feature: data_tables_features
       | taylor     | swift     | singer      | Nashwille | 513       | 2024-02-12 | 150000000 |
       | Suresh     | Kumar     | Dev         | NY        | 626       | 2024-12-12 | 100000    |
       | Nancy      | Clark     | Manager     | Seattle   | 388       | 2024-12-12 | 150000    |
+
+
 #    shift + \   =    |

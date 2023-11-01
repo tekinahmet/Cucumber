@@ -1,4 +1,5 @@
 package utilities;
+
 import org.apache.poi.ss.usermodel.*;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -6,10 +7,12 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
 public class ExcelUtils {
     private Workbook workBook;
     private Sheet workSheet;
     private String path;
+
     public ExcelUtils(String path, String sheetName) {//This Constructor is to open and access the excel file
         this.path = path;
         try {
@@ -23,6 +26,7 @@ public class ExcelUtils {
             throw new RuntimeException(e);
         }
     }
+
     //This will get the list of the data in the excel file
 //This is a list of map of string. This takes the data as string and will return the data as a Map of String
     public List<Map<String, String>> getDataList() {
@@ -44,15 +48,18 @@ public class ExcelUtils {
         }
         return data;
     }
+
     //===============Getting the number of columns in a specific single row=================
     public int columnCount() {
 //getting how many numbers in row 1
         return workSheet.getRow(0).getLastCellNum();
     }
+
     //===============how do you get the last row number?Index start at 0.====================
     public int rowCount() {
         return workSheet.getLastRowNum() + 1;
     }//adding 1 to get the actual count
+
     //==============When you enter row and column number, then you get the data==========
     public String getCellData(int rowNum, int colNum) {
         Cell cell;
@@ -64,6 +71,7 @@ public class ExcelUtils {
             throw new RuntimeException(e);
         }
     }
+
     //============getting all data into two dimentional array and returning the data===
     public String[][] getDataArray() {
         String[][] data = new String[rowCount()][columnCount()];
@@ -75,6 +83,7 @@ public class ExcelUtils {
         }
         return data;
     }
+
     //==============going to the first row and reading each column one by one==================//
     public List<String> getColumnsNames() {
         List<String> columns = new ArrayList<>();
@@ -83,6 +92,7 @@ public class ExcelUtils {
         }
         return columns;
     }
+
     //=========When you enter the row and column number, returning the value===============//
     public void setCellData(String value, int rowNum, int colNum) {
         Cell cell;
@@ -103,10 +113,12 @@ public class ExcelUtils {
             e.printStackTrace();
         }
     }
+
     public void setCellData(String value, String columnName, int row) {
         int column = getColumnsNames().indexOf(columnName);
         setCellData(value, row, column);
     }
+
     //this method will return data table as 2d array
 //so we need this format because of data provider.
     public String[][] getDataArrayWithoutFirstRow() {
