@@ -14,7 +14,8 @@ public class BlueRentalLoginPage {
     @FindBy(id="formBasicPassword")
     public WebElement password;
     @FindBy(xpath = "//button[@type='submit']")
-    public WebElement loginButton;
-    @FindBy(id = "dropdown-basic-button")
-    public WebElement profile;
+    public WebElement loginOnLoginPage;
+    @FindBy(xpath = "//button[@id='dropdown-basic-button']")
+    public WebElement profileName;
+
 }
