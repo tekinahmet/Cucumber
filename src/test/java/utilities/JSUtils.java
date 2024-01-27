@@ -71,4 +71,22 @@ public class JSUtils {
 //        I have to do this, cause getText in this case does not return teh text in an input
 //        EG: getValueByJS("hotelDates")
     }
+    
+    public static void flashElement(WebElement element) {
+        JavascriptExecutor jsExecutor = (JavascriptExecutor) Driver.getDriver();
+        for (int i = 0; i < 10; i++) {
+            jsExecutor.executeScript("arguments[0].style.backgroundColor = 'blue'", element);
+            try {
+                Thread.sleep(50);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+            jsExecutor.executeScript("arguments[0].style.backgroundColor = ''", element);
+            try {
+                Thread.sleep(50);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+        }
+    }
 }
